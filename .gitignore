@@ -1,0 +1,61 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Build and packaged output
+dist/
+release/
+build/
+out/
+build-output/
+final-app/
+*.asar
+*.exe
+*.dmg
+*.AppImage
+*.msi
+*.blockmap
+
+# Local environment and private config
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Logs and temporary files
+*.log
+*.local
+*.tmp
+*.temp
+*.cache
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Tool caches
+.vite/
+.electron-builder/
+.claude/
+.codex/
+
+# Local app data
+books.json
+library/
+
+# Backups and archives
+*.zip
+*.7z
+*.rar
+*.tar
+*.tgz
+*.gz
+
+# OS and editor noise
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

@@ -1,0 +1,58 @@
+{
+  "name": "moyu-shenqi",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "electron/main.cjs",
+  "scripts": {
+    "dev": "vite",
+    "dev:electron": "node scripts/start-electron-dev.mjs",
+    "electron": "electron electron/main.cjs",
+    "test:encoding": "node scripts/test-encoding.cjs",
+    "test:chapters": "node scripts/test-parse-chapters.mjs",
+    "test:books": "node scripts/test-books-store.cjs",
+    "build": "tsc --noEmit && vite build",
+    "package": "set CSC_IDENTITY_AUTO_DISCOVERY=false&& npm run build && electron-builder --dir",
+    "dist": "set CSC_IDENTITY_AUTO_DISCOVERY=false&& npm run build && electron-builder --win nsis",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.23",
+    "@types/react-dom": "^18.3.7",
+    "@vitejs/plugin-react": "^4.5.0",
+    "autoprefixer": "^10.4.21",
+    "electron": "^30.0.0",
+    "electron-builder": "^24.13.3",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5"
+  },
+  "build": {
+    "appId": "com.moyu.reader",
+    "productName": "摸鱼神器",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "win": {
+      "signAndEditExecutable": false,
+      "verifyUpdateCodeSignature": false,
+      "target": [
+        "nsis"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}
