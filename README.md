@@ -26,7 +26,6 @@
 3. 双击安装并启动软件。
 4. 在软件中导入 TXT 文件开始阅读。
 
-安装包不建议直接提交到源码仓库。请把 Windows 安装包发布到 GitHub Releases。
 
 ## 开发启动
 
@@ -44,7 +43,6 @@ npm run build
 npm run dist
 ```
 
-构建产物会生成在本地 `dist/` 和 `release/` 目录中，这些目录不应提交到 GitHub。
 
 ## 云端同步
 
@@ -56,15 +54,11 @@ npm run dist
 https://read.example.com
 ```
 
-不要填写 `/api`，也不要在 Cloudflare Tunnel 模式下填写 `:3300`。客户端会自动拼接 `/api/...`。
-
 服务器不会保存 TXT 小说正文，只同步账号、书架元数据、阅读进度、书签、阅读设置和分类。
 
 ## 隐私说明
 
 - TXT 小说正文默认只保存在本地设备。
-- 不要把个人 TXT 文件、`.env`、token 或账号密码提交到 GitHub。
-- 当前项目未指定开源许可证；如需公开授权，请在发布前添加 `LICENSE`。
 
 ## 更多文档
 
