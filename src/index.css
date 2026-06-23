@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+.book-card-actions {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 160ms ease;
+}
+
+.group:hover .book-card-actions,
+.group:focus-within .book-card-actions {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@media (hover: none), (pointer: coarse) {
+  .book-card-actions {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+/* 阅读正文里的章节标题：基于解析出的 chapters 渲染（不污染正文文本本身），
+   仅是局部 inline 样式，颜色继承所在主题。 */
+.reader-chapter-title {
+  display: block;
+  font-weight: 700;
+  font-size: 1.35em;
+  line-height: 1.4;
+  margin-top: 1.2em;
+  margin-bottom: 0.8em;
+  letter-spacing: 0;
+}
+
+.reader-content {
+  font-size: var(--reader-font-size);
+  line-height: var(--reader-line-height);
+}
+
+.reader-chrome {
+  overflow: hidden;
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease,
+    max-height 180ms ease,
+    border-color 180ms ease;
+}
+
+.reader-topbar {
+  max-height: 3rem;
+}
+
+.reader-bottom-chrome {
+  max-height: 8.5rem;
+}
+
+.reader-chrome-hidden {
+  opacity: 0;
+  pointer-events: none;
+  max-height: 0 !important;
+  border-width: 0 !important;
+  border-color: transparent !important;
+}
+
+.reader-topbar-hidden {
+  transform: translateY(-8px);
+}
+
+.reader-bottom-chrome.reader-chrome-hidden {
+  transform: translateY(8px);
+}
+
+.reader-chapter-nav-button {
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.08);
+}
+
+.reader-chapter-nav-button:not(:disabled):hover {
+  opacity: 0.86;
+  transform: translateY(-1px);
+}
+
+.reader-chapter-nav-button:not(:disabled):active {
+  transform: translateY(0) scale(0.98);
+}
+
+.reader-cursor-hidden,
+.reader-cursor-hidden * {
+  cursor: none !important;
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fade-in 160ms ease-out;
+  }
+
+  .animate-slide-in {
+    animation: slide-in 180ms ease-out;
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slide-in {
+    from {
+      opacity: 0;
+      transform: translateX(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
