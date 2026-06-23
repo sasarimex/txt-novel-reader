@@ -65,4 +65,3 @@ https://read.example.com
 - [用户指南](docs/USER_GUIDE.md)
 - [开发说明](docs/DEVELOPMENT.md)
 - [发布说明](docs/RELEASE_GUIDE.md)
-- [GitHub 上传检查清单](GITHUB_UPLOAD_CHECKLIST.md)
